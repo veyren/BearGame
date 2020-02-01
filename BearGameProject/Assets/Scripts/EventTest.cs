@@ -4,24 +4,24 @@ using System.Collections;
 
 public class EventTest : MonoBehaviour
 {
-    private UnityAction someListener;
+    private UnityAction m_SomeListener;
 
     void Awake()
     {
-        someListener = new UnityAction(SomeFunction);
+        m_SomeListener = new UnityAction(SomeFunction);
     }
 
     void OnEnable()
     {
-        EventManager.StartListening("test", someListener);
-        EventManager.StartListening("Spawn", SomeOtherFunction);
+        EventManager.StartListening("test", m_SomeListener);
+        EventManager.StartListening("Spawn", MyEventCallback);
         EventManager.StartListening("Destroy", SomeThirdFunction);
     }
 
     void OnDisable()
     {
-        EventManager.StopListening("test", someListener);
-        EventManager.StopListening("Spawn", SomeOtherFunction);
+        EventManager.StopListening("test", m_SomeListener);
+        EventManager.StopListening("Spawn", MyEventCallback);
         EventManager.StopListening("Destroy", SomeThirdFunction);
     }
 
@@ -30,7 +30,7 @@ public class EventTest : MonoBehaviour
         Debug.Log("Some Function was called!");
     }
 
-    void SomeOtherFunction()
+    void MyEventCallback()
     {
         Debug.Log("Some Other Function was called!");
     }
