@@ -24,5 +24,12 @@ public class EventTriggerTest : MonoBehaviour
         {
             EventManager.TriggerEvent("Junk");
         }
+
+        if(Input.GetKeyDown("1"))
+            GameManager.Instance.StartGame();
+
+        if(Input.GetKeyDown("2"))
+            GameManager.Instance.EndGame();
+
     }
 }
