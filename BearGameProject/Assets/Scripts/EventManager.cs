@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class EventManager : MonoBehaviour
 {
+
     private Dictionary<string, UnityEvent> m_EventDictionary;
 
     private static EventManager sm_EventManager;
