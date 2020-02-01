@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager sm_EventManager;
+    private static GameManager sm_GameManager;
 
     public static GameManager Instance
     {
         get
         {
-            if(!sm_EventManager)
+            if(!sm_GameManager)
             {
                 FindObjectOfType<GameManager>();
 
-                sm_EventManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+                sm_GameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
 
-                if(!sm_EventManager)
+                if(!sm_GameManager)
                     Debug.LogError("There needs to be one active GameManager script on a GameObject in your scene.");
                 else
-                    sm_EventManager.Init();
+                    sm_GameManager.Init();
             }
 
-            return sm_EventManager;
+            return sm_GameManager;
         }
     }
 
